@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Fade's Dev Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+IE:wght@100..400&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent: rgb(122, 122, 241);
+            --green: rgba(23, 209, 122, 0.959);
+            --green-solid: rgba(23, 209, 122, 1);
+            --bg: rgba(255, 253, 253, 0.8);
+            --text: rgb(0, 0, 3);
+            --h2: rgb(119, 197, 167);
+            --player-bg: #1a1a2e;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Playwrite IE", cursive;
+            font-weight: 400;
+            background-color: var(--bg);
+            border: 1px solid rgba(29, 192, 221, 0.1);
+            padding: 10px;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            min-height: 100vh;
+        }
+
+        body.dark {
+            background-color: #1a1a2e;
+            color: white;
+        }
+
+        body.dark p { color: #ccc; }
+        body.dark h1 { color: rgb(150, 150, 255); }
+        body.dark button { background-color: rgba(23, 209, 122, 0.8); }
+
+        #ghost-lyrics {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(2rem, 8vw, 6rem);
+            font-weight: 700;
+            opacity: 0.04;
+            color: var(--accent);
+            z-index: -1;
+            pointer-events: none;
+            text-align: center;
+            width: 90vw;
+            transition: opacity 0.5s ease-in-out;
+            line-height: 1.2;
+            word-break: break-word;
+        }
+
+        body.dark #ghost-lyrics {
+            color: rgb(150, 150, 255);
+            opacity: 0.05;
+        }
+
+        h1 {
+            color: rgb(122, 122, 241);
+            animation: fadeIn 1s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h2 {
+            color: var(--h2);
+            margin: 20px 0 8px;
+        }
+
+        p {
+            color: var(--text);
+            font-family: "Montserrat", sans-serif;
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: var(--green);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        button:hover {
+            background-color: var(--green-solid);
+            transform: scale(1.03);
+        }
+
+        .links {
+            margin: 15px 0;
+        }
+
+        .btn-style {
+            display: inline-block;
+            background-color: var(--green);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-style:hover {
+            background-color: var(--green-solid);
+            transform: scale(1.03);
+        }
+
+        #profilePic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            margin: 10px auto;
+            box-shadow: 0px 4px 15px rgba(122, 122, 241, 0.4);
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: rgb(122, 122, 241);
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: rgba(23, 209, 122, 1);
+        }
+
+        .player {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 320px;
+            margin: 20px auto;
+            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        #albumArt {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        #songTitle {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        #lyrics {
+            font-family: "Montserrat", sans-serif;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 15px;
+            min-height: 40px;
+            transition: opacity 0.5s ease-in-out;
+            line-height: 1.5;
+            padding: 0 5px;
+        }
+
+        #lyrics.highlight {
+            color: #17d17a;
+            transform: scale(1.07);
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        #playBtn {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        #progress-wrap {
+            width: 100%;
+            height: 4px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 99px;
+            margin: 12px 0 6px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        #progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #17d17a, rgb(122,122,241));
+            border-radius: 99px;
+            transition: width 0.5s linear;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="ghost-lyrics">Intro...</div>
+
+    <nav>
+        <a href="#intro">Introduction</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="links.html">Links</a>
+    </nav>
+
+    <h1>Fade's Dev Profile</h1>
+
+    
+    <img src="fade the dev.jpeg" alt="Fade's profile picture" id="profilePic">
+    <h2 id="intro">Introduction</h2>
+    <p>I am Fade and I've been a dev since 2026. I love to try to build things but I'm not the best at coding yet, so I'm still learning. Fun fact: this website was one of the first times I ever coded something with HTML!</p>
+
+    <h2 id="skills">Skills</h2>
+    <p>I have some skills in coding so far. I know the basics of HTML and a little bit of Python. I'm going to learn Java for backend development and a lot more!</p>
+
+    <h2 id="projects">Projects</h2>
+    <p>I have a few projects that I have worked on, but most of them are not finished. Check out the links tab for more info on my projects.</p>
+
+    <div class="links">
+        <a href="links.html" class="btn-style">Click here for links</a>
+    </div>
+
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <div class="player">
+        <img id="albumArt" src="juice wrld album cover.png" alt="Album Art">
+        <h3 id="songTitle">Juice X Makonnen Freestyles</h3>
+        <audio id="bgMusic" src="hopefully juice wrld.exe"></audio>
+        <div id="progress-wrap">
+            <div id="progress-bar"></div>
+        </div>
+        <div id="lyrics">Intro...</div>
+        <button id="playBtn" onclick="toggleMusic()">▶ Play</button>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark");
+            localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+        }
+        if (localStorage.getItem("darkMode") === "true") {
+            document.body.classList.add("dark");
+        }
+
+        const lyrics = [
+            { time: 35,  text: "Hey, how you doin'?" },
+            { time: 38,  text: "I wonder if you're still on my mind" },
+            { time: 41,  text: "Screamin' Hey, how you doin'?" },
+            { time: 44,  text: "I know that I'm still on your mind" },
+            { time: 51,  text: "I wonder what's going on in my mind" },
+            { time: 55,  text: "I've been ballin' on these niggas" },
+            { time: 75,  text: "I pray to God for protection" },
+            { time: 82,  text: "I really search for perfection" },
+            { time: 89,  text: "I just want sex, love, Ecstasy" },
+            { time: 92,  text: "I popped a few drugs, Ecstasy" },
+            { time: 96,  text: "I just want sex, love, Ecstasy" },
+            { time: 104, text: "Hey Martha, why you killin' those girls?" },
+            { time: 108, text: "Is it because your lonely heart wants to kill the world?" },
+            { time: 114, text: "I been doin' that all for you" },
+            { time: 125, text: "Sex, and love, Ecstasy" },
+            { time: 128, text: "She thinks I'm the one, so she's next to me" },
+            { time: 133, text: "She just want sex, love, and Ecstasy" },
+            { time: 144, text: "Hey, how you feelin' girl?" },
+            { time: 147, text: "We're on a planet called Earth, but this is Juice WRLD" },
+            { time: 161, text: "Three things in my mind right now, that's sex, love, Ecstasy" },
+            { time: 172, text: "Good sex, love, good sex, love" },
+            { time: 179, text: "No flex, love" },
+            { time: 181, text: "All phone calls, no text, love" },
+            { time: 189, text: "Ay, sex, love, Ecstasy" },
+            { time: 236, text: "It's going downtown" },
+            { time: 241, text: "On 21st street" },
+            { time: 249, text: "Ball on these niggas like I'm Spalding" },
+            { time: 252, text: "Shut the fuck up, I don't wanna hear you talking" },
+            { time: 261, text: "Kobe, Micheal, Ginóbili, Micheal Jackson" },
+            { time: 270, text: "Either way it goes, I'm ballin' on 21st street" },
+            { time: 278, text: "She took some white and some yellow then went down" },
+            { time: 283, text: "I'm the king of this shit, I need a crown" },
+            { time: 290, text: "Word to your mother, getting to this cash" },
+            { time: 299, text: "I've been getting cash every day, you're out of pocket" },
+            { time: 307, text: "Tryna sell my soul" },
+            { time: 314, text: "I feel like I'm Phantom, Danny with the Phantom" },
+            { time: 317, text: "Kill 'em out the random" },
+            { time: 319, text: "I crawl fast, eight leg Tarantula" },
+            { time: 324, text: "Pockets obese, fat" },
+            { time: 329, text: "If I go broke, it's back to sellin' all those packs" },
+            { time: 335, text: "Police come over, I don't know shit" },
+            { time: 339, text: "I really keep on killing all my opponents" },
+            { time: 341, text: "I get commas, I get commas, you still countin' exponents" },
+            { time: 346, text: "No Adderall in my system but I stay focused" },
+            { time: 353, text: "Life's too deep, so I compare it to an ocean" },
+            { time: 358, text: "Guess I'm a shark, feel like big Jaws" },
+            { time: 401, text: "I walk up in Saks, spend some racks, I'm a millionaire" },
+            { time: 406, text: "It's me and Makonnen, we winnin', we ain't losin'" },
+            { time: 412, text: "I guess that I'm the shit, Tony Miller, I'm maneuvering" },
+            { time: 436, text: "Louis on my sweater" },
+            { time: 438, text: "Could've did good but I decided to do better" },
+            { time: 445, text: "Say you wanna fight, shoot, duke it out, whatever" },
+            { time: 452, text: "In the streets I be maneuvering, maneuvering" },
+            { time: 462, text: "Young Terry Crews, I'ma flex on these niggas" },
+            { time: 475, text: "They be Drizzy or something, in they feelings" },
+            { time: 479, text: "Drop a dime on a bitch" },
+            { time: 486, text: "Fuck this bitch up in the kitchen" },
+            { time: 504, text: "Say he want a problem, I'm gon' have to do it" },
+            { time: 512, text: "That's yo' shorty in my party" },
+            { time: 516, text: "Me and Makonnen maneuvering" },
+            { time: 581, text: "I'm smokin' gas, getting dough" },
+            { time: 586, text: "I don't do Molly no more" },
+            { time: 589, text: "Back in the day, I was lit" },
+            { time: 593, text: "Kinda like a lighter, call me Juice Bic" },
+            { time: 606, text: "It's me and Makonnen, the best thing going" },
+            { time: 610, text: "I feel like a God, god dammit and you know it" },
+            { time: 624, text: "I told you, if I do my dirt, I do it by my lonely" },
+            { time: 631, text: "I'm bound to spit some crack every time I'm on the beat" },
+            { time: 641, text: "Flyin' though, I am in the air, superhero" },
+            { time: 650, text: "Say he wanna fight, I beat him, steal his bike, Deebo" },
+            { time: 651, text: "I'm smokin' gas, getting dough" },
+            { time: 654, text: "I don't do Molly no more" },
+            { time: 681, text: "Bring the hook back, freestyle a whole song" },
+            { time: 682, text: "Me and the mic' rapping all night long" },
+            { time: 692, text: "I'm the type to buy a mansion up in Atlanta" },
+            { time: 699, text: "Remember, I was sippin' lean like a present came from Santa" },
+            { time: 705, text: "Young nigga ballin' like McGrady in the fourth" },
+            { time: 716, text: "Louis on my sweater, they can't do it better than me" },
+            { time: 724, text: "Lookin' up to God, I know he bettering me" },
+            { time: 726, text: "Run it fast, get the cash, smokin' gas" },
+            { time: 733, text: "I'm a Cheetah and they Molasses" },
+            { time: 737, text: "I'm smokin' gas, getting dough" },
+            { time: 742, text: "I don't do Molly no more" },
+            { time: 745, text: "Back in the days I was lit" },
+            { time: 748, text: "Kinda like a lighter, call me Juice Bic" },
+        ];
+
+        const audio        = document.getElementById("bgMusic");
+        const lyricsEl     = document.getElementById("lyrics");
+        const ghostEl      = document.getElementById("ghost-lyrics");
+        const playBtn      = document.getElementById("playBtn");
+        const progressBar  = document.getElementById("progress-bar");
+        const progressWrap = document.getElementById("progress-wrap");
+
+        let currentIndex = -1;
+
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.textContent = "⏸ Pause";
+            } else {
+                audio.pause();
+                playBtn.textContent = "▶ Play";
+            }
+        }
+
+        audio.addEventListener("timeupdate", () => {
+            const t = audio.currentTime;
+            if (audio.duration) {
+                progressBar.style.width = ((t / audio.duration) * 100) + "%";
+            }
+            let idx = -1;
+            for (let i = 0; i < lyrics.length; i++) {
+                if (t >= lyrics[i].time) idx = i;
+                else break;
+            }
+            if (idx !== currentIndex) {
+                currentIndex = idx;
+                const text = idx === -1 ? "Intro..." : lyrics[idx].text;
+                lyricsEl.style.opacity = "0";
+                setTimeout(() => {
+                    lyricsEl.textContent = text;
+                    lyricsEl.classList.add("highlight");
+                    lyricsEl.style.opacity = "1";
+                    ghostEl.textContent = text;
+                    setTimeout(() => lyricsEl.classList.remove("highlight"), 600);
+                }, 250);
+            }
+        });
+
+        audio.addEventListener("ended", () => {
+            playBtn.textContent = "▶ Play";
+            currentIndex = -1;
+            lyricsEl.textContent = "Intro...";
+            ghostEl.textContent = "Intro...";
+            progressBar.style.width = "0%";
+        });
+
+        progressWrap.addEventListener("click", (e) => {
+            const rect = progressWrap.getBoundingClientRect();
+            const ratio = (e.clientX - rect.left) / rect.width;
+            audio.currentTime = ratio * audio.duration;
+        });
+    </script>
+
+</body>
+</html>

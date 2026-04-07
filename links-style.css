@@ -1,0 +1,59 @@
+body {
+    background-color: rgba(255, 253, 253, 0.8);
+    border: 1px solid rgba(29, 192, 221, 0.1);
+    padding: 10px;
+}
+
+a {
+    color: rgb(226, 114, 114);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: rgb(241, 122, 122);
+    text-decoration: underline;
+}
+
+body.dark {
+    background-color: #1a1a2e;
+    color: white;
+}
+
+body.dark a {
+    color: rgb(150, 150, 255);
+}
+
+
+body{
+    font-family: "Montserrat", sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    width: 250px;
+    margin: 20px auto;
+} 
+
+li {
+    margin: 10px 0;
+}
+
+li a {
+    display: block;
+    background-color: rgb(226, 114, 114) ;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+
+li a:hover {
+    background-color: rgb(241, 122, 122);
+    transform: scale(1.03);
+}
