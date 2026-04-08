@@ -14,7 +14,6 @@
             --bg: rgba(255, 253, 253, 0.8);
             --text: rgb(0, 0, 3);
             --h2: rgb(119, 197, 167);
-            --player-bg: #1a1a2e;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,11 +28,7 @@
             min-height: 100vh;
         }
 
-        body.dark {
-            background-color: #1a1a2e;
-            color: white;
-        }
-
+        body.dark { background-color: #1a1a2e; color: white; }
         body.dark p { color: #ccc; }
         body.dark h1 { color: rgb(150, 150, 255); }
         body.dark button { background-color: rgba(23, 209, 122, 0.8); }
@@ -57,32 +52,15 @@
             word-break: break-word;
         }
 
-        body.dark #ghost-lyrics {
-            color: rgb(150, 150, 255);
-            opacity: 0.05;
-        }
+        body.dark #ghost-lyrics { color: rgb(150, 150, 255); opacity: 0.05; }
 
-        h1 {
-            color: rgb(122, 122, 241);
-            animation: fadeIn 1s ease-in-out;
-            margin-bottom: 10px;
-        }
+        h1 { color: rgb(122, 122, 241); animation: fadeIn 1s ease-in-out; margin-bottom: 10px; }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        h2 {
-            color: var(--h2);
-            margin: 20px 0 8px;
-        }
+        h2 { color: var(--h2); margin: 20px 0 8px; }
 
-        p {
-            color: var(--text);
-            font-family: "Montserrat", sans-serif;
-            line-height: 1.6;
-        }
+        p { color: var(--text); font-family: "Montserrat", sans-serif; line-height: 1.6; }
 
         button {
             background-color: var(--green);
@@ -96,14 +74,9 @@
             transition: background-color 0.2s ease, transform 0.1s ease;
         }
 
-        button:hover {
-            background-color: var(--green-solid);
-            transform: scale(1.03);
-        }
+        button:hover { background-color: var(--green-solid); transform: scale(1.03); }
 
-        .links {
-            margin: 15px 0;
-        }
+        .links { margin: 15px 0; }
 
         .btn-style {
             display: inline-block;
@@ -119,10 +92,7 @@
             transition: background-color 0.2s ease, transform 0.1s ease;
         }
 
-        .btn-style:hover {
-            background-color: var(--green-solid);
-            transform: scale(1.03);
-        }
+        .btn-style:hover { background-color: var(--green-solid); transform: scale(1.03); }
 
         #profilePic {
             width: 120px;
@@ -133,12 +103,7 @@
             box-shadow: 0px 4px 15px rgba(122, 122, 241, 0.4);
         }
 
-        nav {
-            display: flex;
-            gap: 15px;
-            padding: 10px 0;
-            margin-bottom: 20px;
-        }
+        nav { display: flex; gap: 15px; padding: 10px 0; margin-bottom: 20px; }
 
         nav a {
             color: rgb(122, 122, 241);
@@ -148,69 +113,79 @@
             transition: color 0.3s ease;
         }
 
-        nav a:hover {
-            color: rgba(23, 209, 122, 1);
-        }
+        nav a:hover { color: rgba(23, 209, 122, 1); }
 
         .player {
-            background-color: #1a1a2e;
+            background: linear-gradient(180deg, #1e1e3a 0%, #121212 100%);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 24px 20px;
+            border-radius: 16px;
             text-align: center;
-            width: 320px;
-            margin: 20px auto;
-            box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            width: 340px;
+            margin: 30px auto;
+            box-shadow: 0px 8px 40px rgba(0,0,0,0.6);
             border: 1px solid rgba(255,255,255,0.08);
         }
 
         #albumArt {
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            margin-bottom: 10px;
+            width: 220px;
+            height: 220px;
+            border-radius: 12px;
+            margin-bottom: 16px;
             object-fit: cover;
+            box-shadow: 0px 8px 24px rgba(0,0,0,0.5);
         }
 
-        #songTitle {
+        #songTitle { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 1.1rem; color: white; margin-bottom: 4px; }
+
+        #artistName { font-family: "Montserrat", sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+
+        .song-switcher { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+
+        .song-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            animation: none;
+            box-shadow: none;
             font-family: "Montserrat", sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 10px;
-            color: #fff;
         }
+
+        .song-btn:hover { background: rgba(255,255,255,0.2); transform: none; }
+        .song-btn.active { background: #1db954; color: white; }
 
         #lyrics {
             font-family: "Montserrat", sans-serif;
             font-size: 15px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 15px;
-            min-height: 40px;
-            transition: opacity 0.5s ease-in-out;
+            color: #ccc;
+            margin: 12px 0;
+            min-height: 44px;
             line-height: 1.5;
-            padding: 0 5px;
+            padding: 0 10px;
+            transition: opacity 0.4s ease;
         }
 
-        #lyrics.highlight {
-            color: #17d17a;
-            transform: scale(1.07);
-            font-weight: 600;
-            transition: color 0.3s ease, transform 0.3s ease;
+        #lyrics.highlight { color: #1db954 !important; font-weight: 700; font-size: 16px; }
+
+        #progress-wrap { display: flex; align-items: center; gap: 8px; margin: 12px 0; }
+
+        #current-time, #total-time {
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            min-width: 32px;
         }
 
-        #playBtn {
-            margin-top: 10px;
-            font-size: 1rem;
-        }
-
-        #progress-wrap {
-            width: 100%;
+        #progress-bar-track {
+            flex: 1;
             height: 4px;
             background: rgba(255,255,255,0.15);
             border-radius: 99px;
-            margin: 12px 0 6px;
             cursor: pointer;
             overflow: hidden;
         }
@@ -218,10 +193,43 @@
         #progress-bar {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #17d17a, rgb(122,122,241));
+            background: #1db954;
             border-radius: 99px;
-            transition: width 0.1s linear; /* Changed to 0.1 for smoother tracking */
+            transition: width 0.1s linear;
         }
+
+        .controls { display: flex; justify-content: center; align-items: center; gap: 20px; margin-top: 16px; }
+
+        .controls button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: color 0.2s ease, transform 0.1s ease;
+            animation: none;
+            box-shadow: none;
+        }
+
+        .controls button:hover { color: #1db954; transform: scale(1.1); background: none; }
+
+        #playBtn {
+            background: #1db954 !important;
+            color: white !important;
+            width: 50px;
+            height: 50px;
+            border-radius: 50% !important;
+            font-size: 1.2rem !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 !important;
+        }
+
+        footer { text-align: center; padding: 20px; margin-top: 40px; color: rgba(0,0,3,0.5); font-family: "Montserrat", sans-serif; font-size: 14px; }
+        body.dark footer p { color: rgba(255,255,255,0.4); }
     </style>
 </head>
 
@@ -237,9 +245,8 @@
     </nav>
 
     <h1>Fade's Dev Profile</h1>
-
     <img src="fade the dev.jpeg" alt="Fade's profile picture" id="profilePic">
-    
+
     <h2 id="intro">Introduction</h2>
     <p>I am Fade and I've been a dev since 2026. I love to build things but I'm still learning. Fun fact: this website was one of the first times I ever coded something with HTML and CSS!</p>
 
@@ -256,270 +263,507 @@
     <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
     <div class="player">
-        <img id="albumArt" src="juice wrld album cover.png" alt="Album Art">
+        <img id="albumArt" src="juice_wrld_album_cover.png" alt="Album Art">
         <h3 id="songTitle">Juice X Makonnen Freestyles</h3>
-        <audio id="bgMusic" src="Juice WRLD_ Juice X Makonnen Freestyles.mp3"></audio>
-        <div id="progress-wrap">
-            <div id="progress-bar"></div>
+        <p id="artistName">Juice WRLD</p>
+        <div class="song-switcher">
+            <button class="song-btn active" onclick="loadSong(0)">Juice X Makonnen</button>
+            <button class="song-btn" onclick="loadSong(1)">Priceless Freestyle</button>
         </div>
+        <audio id="bgMusic"></audio>
         <div id="lyrics">Intro...</div>
-        <button id="playBtn" onclick="toggleMusic()">▶ Play</button>
+        <div id="progress-wrap">
+            <span id="current-time">0:00</span>
+            <div id="progress-bar-track">
+                <div id="progress-bar"></div>
+            </div>
+            <span id="total-time">0:00</span>
+        </div>
+        <div class="controls">
+            <button id="prevBtn" onclick="prevSong()">⏮</button>
+            <button id="playBtn" onclick="toggleMusic()">▶</button>
+            <button id="nextBtn" onclick="nextSong()">⏭</button>
+        </div>
     </div>
+
+    <footer><p>© 2026 Fade's Dev Profile</p></footer>
 
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark");
             localStorage.setItem("darkMode", document.body.classList.contains("dark"));
         }
-        if (localStorage.getItem("darkMode") === "true") {
-            document.body.classList.add("dark");
-        }
+        if (localStorage.getItem("darkMode") === "true") document.body.classList.add("dark");
 
-        const lyrics = [
-    // Part 1: Sex, Love, Ecstasy
-    { time: 28,  text: "Hey, how you doin'?" },
-    { time: 37,  text: "I wonder if you're still on my mind" },
-    { time: 44,  text: "Screamin' 'Hey, how you doin'?' I know that I'm still on your mind" },
-    { time: 51,  text: "I wonder what's going on in my mind, I can't help it" },
-    { time: 58,  text: "I've been ballin' on these niggas, no Celt', Raymond Felton" },
-    { time: 68,  text: "They in they feelings from shit that they can't control" },
-    { time: 68,  text: "Hey, Makonnen, I know why they hatin', them niggas broke" },
-    { time: 73,  text: "I bet when they struggle, yeah, that shit takes a toll" },
-    { time: 73,  text: "I pray to God for protection, ain't nothin' like a good soul" },
-    { time: 73,  text: "I really search for perfection" },
-    { time: 83,  text: "Every person I know is far from perfect, but so's my soul" },
-    { time: 83,  text: "I don't care no more" },
-    { time: 90,  text: "I just want sex, love, Ecstasy" },
-    { time: 90,  text: "I popped a few drugs, Ecstasy" },
-    { time: 97,  text: "I just want sex, love, Ecstasy" },
-    { time: 97,  text: "I took a few drugs" },
-    { time: 105, text: "Hey Martha, why you killin' those girls?" },
-    { time: 105, text: "Is it because your lonely heart wants to kill the world?" },
-    { time: 114, text: "I been doin' that all for you" },
-    { time: 114, text: "So I can get you close and all for you" },
-    { time: 121, text: "Sex, and love, Ecstasy" },
-    { time: 128, text: "She thinks I'm the one, so she's next to me" },
-    { time: 128, text: "She just want sex, love, and Ecstasy" },
-    { time: 136, text: "She thinks I'm the one, ooh" },
-    { time: 143, text: "Hey, how you feelin' girl?" },
-    { time: 143, text: "We're on a planet called Earth, but this is Juice WRLD" },
-    { time: 150, text: "I wonder why I pop Perc's and do pearls" },
-    { time: 150, text: "And maybe just take a Addy to focus" },
-    { time: 159, text: "Three things in my mind right now, that's sex, love, Ecstasy" },
-    { time: 159, text: "The best of-" },
-    { time: 168, text: "Three things in my mind right now, that's sex, love, sex, love" },
-    { time: 168, text: "Good sex, love, good sex, love" },
-    { time: 178, text: "No flex, love" },
-    { time: 178, text: "All phone calls, no text, love" },
-    { time: 178, text: "Can't get caught up, situations brought up" },
-    { time: 188, text: "Daily, I've been fucked up" },
-    { time: 188, text: "So high, what the fuck bruh?" },
-    { time: 188, text: "Ay, sex, love, Ecstasy" },
+        const songs = [
 
-    // Part 2: 21st Street
-    { time: 227, text: "Ay, it's going downtown" },
-    { time: 235, text: "It's going downtown, on 21st Street" },
-    { time: 235, text: "We'll take it all around town, 21st Street" },
-    { time: 245, text: "Ball on these niggas like I'm Spalding" },
-    { time: 245, text: "Shut the fuck up, I don't wanna hear you talking" },
-    { time: 253, text: "I give her the D then follow with no offense" },
-    { time: 253, text: "She don't take no offense because I'm too busy balling" },
-    { time: 261, text: "Kobe, Micheal, Ginóbili, Micheal Jackson, Jordan, or Myers, I can't tell" },
-    { time: 268, text: "I guess I'm all three" },
-    { time: 268, text: "Either way it goes, I'm ballin' on 21st Street" },
-    { time: 276, text: "It's going downtown, then around town" },
-    { time: 276, text: "She took some white and some yellow then went down, down" },
-    { time: 276, text: "I'm the king of this shit, I need a crown, crown" },
-    { time: 284, text: "Big boy pants while walking around town, um" },
-    { time: 284, text: "Word to your mother, getting to this cash" },
-    { time: 290, text: "Dirty money motherfucker" },
-    { time: 290, text: "I ain't give a fuck about a bitch or nothin'" },
-    { time: 290, text: "Said she got a muffin in the oven, stop it" },
-    { time: 298, text: "I've been getting cash every day, you're out of pocket" },
-    { time: 298, text: "I feel like a football team losing options, I'm out of" },
-    { time: 305, text: "They can never doubt us" },
-    { time: 305, text: "Tryna sell my soul, they got an X next to my name, like my name Malcolm" },
-    { time: 305, text: "Listen to the outcome" },
-    { time: 313, text: "I feel like I'm Phantom, Danny with the Phantom" },
-    { time: 313, text: "Handsome with a handgun" },
-    { time: 313, text: "Kill 'em out the random" },
-    { time: 313, text: "I crawl fast, eight leg Tarantula" },
-    { time: 322, text: "Ay, I'm a beast, I'm a dog" },
-    { time: 322, text: "Pockets obese, fat, uh" },
-    { time: 322, text: "Bad bitch sittin' prolly smokin' in the back" },
-    { time: 330, text: "If I go broke, it's back to sellin' all those packs" },
-    { time: 330, text: "Movin' brack with your mom while she shove it in her back, uh" },
-    { time: 330, text: "Police come over, I don't know shit" },
-    { time: 330, text: "I don't even know my name, I think that it's Moses" },
-    { time: 339, text: "I really keep on killing all my opponents" },
-    { time: 339, text: "I get commas, I get commas, you still countin' exponents" },
-    { time: 346, text: "Can't you see the difference? You know it" },
-    { time: 346, text: "No Adderall in my system but I stay focused" },
-    { time: 346, text: "Going through the motions and oceans" },
-    { time: 354, text: "Life's too deep, so I compare it to an ocean" },
-    { time: 354, text: "Guess I'm a shark, feel like big Jaws" },
-    { time: 354, text: "Put big dick in a thick broad" },
-    { time: 354, text: "WWW-dot-You-Ain't-On-Shit-Nigga-dot-com" },
+            // ═══ SONG 1: Juice X Makonnen Freestyles ═══
+            {
+                title: "Juice X Makonnen Freestyles",
+                artist: "Juice WRLD",
+                src: "Juice WRLD_ Juice X Makonnen Freestyles.mp3",
+                cover: "juice wrld album cover.png",
+                lyrics: [
+                    // Part 1: Sex, Love, Ecstasy
+                    { time: 28,  text: "Hey, how you doin'?" },
+                    { time: 37,  text: "I wonder if you're still on my mind" },
+                    { time: 44,  text: "Screamin' 'Hey, how you doin'?' I know that I'm still on your mind" },
+                    { time: 51,  text: "I wonder what's going on in my mind, I can't help it" },
+                    { time: 58,  text: "I've been ballin' on these niggas, no Celt', Raymond Felton" },
+                    { time: 68,  text: "They in they feelings from shit that they can't control" },
+                    { time: 68,  text: "Hey, Makonnen, I know why they hatin', them niggas broke" },
+                    { time: 73,  text: "I bet when they struggle, yeah, that shit takes a toll" },
+                    { time: 73,  text: "I pray to God for protection, ain't nothin' like a good soul" },
+                    { time: 73,  text: "I really search for perfection" },
+                    { time: 83,  text: "Every person I know is far from perfect, but so's my soul" },
+                    { time: 83,  text: "I don't care no more" },
+                    { time: 90,  text: "I just want sex, love, Ecstasy" },
+                    { time: 90,  text: "I popped a few drugs, Ecstasy" },
+                    { time: 97,  text: "I just want sex, love, Ecstasy" },
+                    { time: 97,  text: "I took a few drugs" },
+                    { time: 105, text: "Hey Martha, why you killin' those girls?" },
+                    { time: 105, text: "Is it because your lonely heart wants to kill the world?" },
+                    { time: 114, text: "I been doin' that all for you" },
+                    { time: 114, text: "So I can get you close and all for you" },
+                    { time: 121, text: "Sex, and love, Ecstasy" },
+                    { time: 128, text: "She thinks I'm the one, so she's next to me" },
+                    { time: 128, text: "She just want sex, love, and Ecstasy" },
+                    { time: 136, text: "She thinks I'm the one, ooh" },
+                    { time: 143, text: "Hey, how you feelin' girl?" },
+                    { time: 143, text: "We're on a planet called Earth, but this is Juice WRLD" },
+                    { time: 150, text: "I wonder why I pop Perc's and do pearls" },
+                    { time: 150, text: "And maybe just take a Addy to focus" },
+                    { time: 159, text: "Three things in my mind right now, that's sex, love, Ecstasy" },
+                    { time: 159, text: "The best of-" },
+                    { time: 168, text: "Three things in my mind right now, that's sex, love, sex, love" },
+                    { time: 168, text: "Good sex, love, good sex, love" },
+                    { time: 178, text: "No flex, love" },
+                    { time: 178, text: "All phone calls, no text, love" },
+                    { time: 178, text: "Can't get caught up, situations brought up" },
+                    { time: 188, text: "Daily, I've been fucked up" },
+                    { time: 188, text: "So high, what the fuck bruh?" },
+                    { time: 188, text: "Ay, sex, love, Ecstasy" },
+                    // Part 2: 21st Street
+                    { time: 227, text: "Ay, it's going downtown" },
+                    { time: 235, text: "It's going downtown, on 21st Street" },
+                    { time: 235, text: "We'll take it all around town, 21st Street" },
+                    { time: 245, text: "Ball on these niggas like I'm Spalding" },
+                    { time: 245, text: "Shut the fuck up, I don't wanna hear you talking" },
+                    { time: 253, text: "I give her the D then follow with no offense" },
+                    { time: 253, text: "She don't take no offense because I'm too busy balling" },
+                    { time: 261, text: "Kobe, Micheal, Ginóbili, Micheal Jackson, Jordan, or Myers, I can't tell" },
+                    { time: 268, text: "I guess I'm all three" },
+                    { time: 268, text: "Either way it goes, I'm ballin' on 21st Street" },
+                    { time: 276, text: "It's going downtown, then around town" },
+                    { time: 276, text: "She took some white and some yellow then went down, down" },
+                    { time: 276, text: "I'm the king of this shit, I need a crown, crown" },
+                    { time: 284, text: "Big boy pants while walking around town, um" },
+                    { time: 284, text: "Word to your mother, getting to this cash" },
+                    { time: 290, text: "Dirty money motherfucker" },
+                    { time: 290, text: "I ain't give a fuck about a bitch or nothin'" },
+                    { time: 290, text: "Said she got a muffin in the oven, stop it" },
+                    { time: 298, text: "I've been getting cash every day, you're out of pocket" },
+                    { time: 298, text: "I feel like a football team losing options, I'm out of" },
+                    { time: 305, text: "They can never doubt us" },
+                    { time: 305, text: "Tryna sell my soul, they got an X next to my name, like my name Malcolm" },
+                    { time: 305, text: "Listen to the outcome" },
+                    { time: 313, text: "I feel like I'm Phantom, Danny with the Phantom" },
+                    { time: 313, text: "Handsome with a handgun" },
+                    { time: 313, text: "Kill 'em out the random" },
+                    { time: 313, text: "I crawl fast, eight leg Tarantula" },
+                    { time: 322, text: "Ay, I'm a beast, I'm a dog" },
+                    { time: 322, text: "Pockets obese, fat, uh" },
+                    { time: 322, text: "Bad bitch sittin' prolly smokin' in the back" },
+                    { time: 330, text: "If I go broke, it's back to sellin' all those packs" },
+                    { time: 330, text: "Movin' brack with your mom while she shove it in her back, uh" },
+                    { time: 330, text: "Police come over, I don't know shit" },
+                    { time: 330, text: "I don't even know my name, I think that it's Moses" },
+                    { time: 339, text: "I really keep on killing all my opponents" },
+                    { time: 339, text: "I get commas, I get commas, you still countin' exponents" },
+                    { time: 346, text: "Can't you see the difference? You know it" },
+                    { time: 346, text: "No Adderall in my system but I stay focused" },
+                    { time: 346, text: "Going through the motions and oceans" },
+                    { time: 354, text: "Life's too deep, so I compare it to an ocean" },
+                    { time: 354, text: "Guess I'm a shark, feel like big Jaws" },
+                    { time: 354, text: "Put big dick in a thick broad" },
+                    { time: 354, text: "WWW-dot-You-Ain't-On-Shit-Nigga-dot-com" },
+                    // Part 3: Maneuvering
+                    { time: 395, text: "I walk up in Saks, spend some racks, I'm a millionaire" },
+                    { time: 398, text: "I been getting cash every day, what's you doing?" },
+                    { time: 398, text: "Bitches wanna fuck, rich niggas who they screwin'" },
+                    { time: 398, text: "It's me and Makonnen, we winnin', we ain't losin'" },
+                    { time: 398, text: "Through all of the bullshit, I guess that we're manuring" },
+                    { time: 411, text: "I guess that I'm the shit, Tony Miller, I'm maneuvering" },
+                    { time: 411, text: "I'm a kill everything, everybody bring the heat" },
+                    { time: 419, text: "And, on God, I feel like I should play for Miami" },
+                    { time: 419, text: "Bad bitch named Ally, that's me" },
+                    { time: 419, text: "Run up, you get hit nigga, shootin' out the backseat" },
+                    { time: 427, text: "Usain Bolt, make 'em run like a track meet" },
+                    { time: 427, text: "Flexin' on these niggas, damn I'm feelin' like an athlete" },
+                    { time: 435, text: "Louis on my sweater" },
+                    { time: 435, text: "Could've did good but I decided to do better" },
+                    { time: 435, text: "I'ma do better, nigga that's forever" },
+                    { time: 435, text: "Say you wanna fight, shoot, duke it out, whatever" },
+                    { time: 435, text: "Give your ass the hands, so I go grab my new Beretta" },
+                    { time: 444, text: "In the streets I be maneuvering, maneuvering" },
+                    { time: 444, text: "Through the streets be maneuvering, maneuvering" },
+                    { time: 444, text: "I'm the shit, I'm manure-ing, manure-ing" },
+                    { time: 453, text: "Ay, young Terry Crews, I'ma flex on these niggas" },
+                    { time: 453, text: "I'ma fuck they bitch then get the neck then I'm dippin'" },
+                    { time: 460, text: "Like I got my foot out, Makonnen all these niggas trippin'" },
+                    { time: 467, text: "They be Drizzy or something, in they feelings" },
+                    { time: 467, text: "I don't really got no time for that shit" },
+                    { time: 475, text: "Drop a dime on a bitch" },
+                    { time: 475, text: "Another dime 'cause I'm rich" },
+                    { time: 482, text: "She a dime so I hit, yeah" },
+                    { time: 482, text: "Fuck this bitch up in the kitchen, when she cook grits she reminisce" },
+                    { time: 489, text: "You wonder why she's taking so long to cook your breakfast" },
+                    { time: 489, text: "'Cause last week I was in the kitchen getting wreck with her, ay" },
+                    { time: 497, text: "Getting neck, getting, giving neck to her" },
+                    { time: 497, text: "Pussy taste like water, I'ma have to do her" },
+                    { time: 497, text: "Say he want a problem, I'm gon' have to do it, ay" },
+                    { time: 506, text: "Now they on the news like 'He ain't have to do it, what the fuck he doin'?'" },
+                    { time: 513, text: "That's yo' shorty in my party, yeah, that's who I was screwin', ay" },
+                    { time: 523, text: "I'm maneuvering, me and Makonnen maneuvering" },
+                    { time: 523, text: "Shit on these niggas I'm manure-ing" },
+                    { time: 523, text: "Fuck your new car, I got a newer one" },
+                    { time: 530, text: "Say you got depression, I got a bluer one" },
+                    { time: 530, text: "Like that nigga was up in the sewer or something" },
+                    // Part 4: I Don't Sell Molly No More
+                    { time: 581, text: "I'm smokin' gas, getting dough, I don't do Molly no more" },
+                    { time: 590, text: "Back in the day, I was lit, kinda like a lighter, call me Juice Bic" },
+                    { time: 590, text: "I'm smokin' gas, getting dough, I don't do Molly no more" },
+                    { time: 598, text: "Back in the day, shit, I was lit, I feel like a lighter, call me Juice Bic" },
+                    { time: 606, text: "It's me and Makonnen, the best thing going" },
+                    { time: 606, text: "Pink Molly, tan Molly, the best thing rolling" },
+                    { time: 606, text: "I feel like a God, god dammit and you know it" },
+                    { time: 615, text: "My girl is my trophy, so you know I love to show her off" },
+                    { time: 615, text: "I pull up on a scene, .40 on me, I don't even show it" },
+                    { time: 622, text: "I ain't kick it with 'em, they my homie" },
+                    { time: 622, text: "I told you, 'If I do my dirt, I do it by my lonely'" },
+                    { time: 622, text: "And all these niggas fake than a bitch, they be phony" },
+                    { time: 630, text: "I'm bound to spit some crack every time I'm on the beat though" },
+                    { time: 630, text: "Choppa hit his stomach, got him shakin', catch a heat stroke" },
+                    { time: 638, text: "Lookin' at you nigga, he a pussy and he broke" },
+                    { time: 638, text: "I don't gotta make it known as long as he know" },
+                    { time: 638, text: "Flyin' though, I am in the air, superhero" },
+                    { time: 645, text: "Swimmin' through the pussy in the water like I'm Nemo" },
+                    { time: 645, text: "Say he wanna fight, I beat him, steal his bike, Deebo" },
+                    { time: 652, text: "Up, down, left, right, A-B-Y-X, bitch, that is the cheat code" },
+                    { time: 659, text: "I'm smokin' gas, getting dough, I don't do Molly no more" },
+                    { time: 659, text: "Back in the days I was lit, lookin' like a lighter, call me Juice Bic" },
+                    { time: 666, text: "I'm smokin' gas and getting dough, I don't do Molly no more" },
+                    { time: 666, text: "Now I'm lit, super lit" },
+                    { time: 675, text: "Call me Juice Lighter, yeah, Bic" },
+                    { time: 675, text: "Bring the hook back, freestyle a whole song" },
+                    { time: 683, text: "Me and the mic' rapping all night long" },
+                    { time: 683, text: "Choppa beat his chest kinda like King Kong" },
+                    { time: 683, text: "Beat yo' ass on TV to get my Jerry Spring' on" },
+                    { time: 691, text: "I'm the type to buy a mansion up in Atlanta" },
+                    { time: 691, text: "With a black and white car, like Desiigner singing 'Panda'" },
+                    { time: 691, text: "You run up, you get punched, leaned over like a Phantom" },
+                    { time: 700, text: "Remember, I was sippin' lean like a present came from Santa, I was happy" },
+                    { time: 700, text: "Young nigga ballin' like McGrady in the fourth" },
+                    { time: 707, text: "Wish your nigga try to play it, I'ma spray it, got the torch" },
+                    { time: 707, text: "You ain't ballin' how I'm ballin', get the fuck up off my court" },
+                    { time: 707, text: "If I go broke, back to the trap, water whippin' with a fork" },
+                    { time: 716, text: "Louis on my sweater, they can't do it better than me, ugh" },
+                    { time: 716, text: "Heard you got her wet, but you can't get her wetter than me" },
+                    { time: 723, text: "Lookin' up to God, I know he bettering me" },
+                    { time: 723, text: "Run it fast, get the cash, smokin' gas" },
+                    { time: 723, text: "Puff it one time, then I pass" },
+                    { time: 734, text: "I'm fast and these niggas slow, I'm a Cheetah and they Molasses" },
+                    // Outro
+                    { time: 743, text: "I'm smokin' gas, getting dough, I don't do Molly no more, yeah, yeah" },
+                    { time: 743, text: "Back in the days I was lit, kinda like a lighter, call me Juice Bic" },
+                ]
+            },
 
-    // Part 3: Maneuvering
-    { time: 395, text: "I walk up in Saks, spend some racks, I'm a millionaire" },
-    { time: 398, text: "I been getting cash every day, what's you doing?" },
-    { time: 398, text: "Bitches wanna fuck, rich niggas who they screwin'" },
-    { time: 398, text: "It's me and Makonnen, we winnin', we ain't losin'" },
-    { time: 398, text: "Through all of the bullshit, I guess that we're manuring" },
-    { time: 411, text: "I guess that I'm the shit, Tony Miller, I'm maneuvering" },
-    { time: 411, text: "I'm a kill everything, everybody bring the heat" },
-    { time: 419, text: "And, on God, I feel like I should play for Miami" },
-    { time: 419, text: "Bad bitch named Ally, that's me" },
-    { time: 419, text: "Run up, you get hit nigga, shootin' out the backseat" },
-    { time: 427, text: "Usain Bolt, make 'em run like a track meet" },
-    { time: 427, text: "Flexin' on these niggas, damn I'm feelin' like an athlete" },
-    { time: 435, text: "Louis on my sweater" },
-    { time: 435, text: "Could've did good but I decided to do better" },
-    { time: 435, text: "I'ma do better, nigga that's forever" },
-    { time: 435, text: "Say you wanna fight, shoot, duke it out, whatever" },
-    { time: 435, text: "Give your ass the hands, so I go grab my new Beretta" },
-    { time: 444, text: "In the streets I be maneuvering, maneuvering" },
-    { time: 444, text: "Through the streets be maneuvering, maneuvering" },
-    { time: 444, text: "I'm the shit, I'm manure-ing, manure-ing" },
-    { time: 453, text: "Ay, young Terry Crews, I'ma flex on these niggas" },
-    { time: 453, text: "I'ma fuck they bitch then get the neck then I'm dippin'" },
-    { time: 460, text: "Like I got my foot out, Makonnen all these niggas trippin'" },
-    { time: 467, text: "They be Drizzy or something, in they feelings" },
-    { time: 467, text: "I don't really got no time for that shit" },
-    { time: 475, text: "Drop a dime on a bitch" },
-    { time: 475, text: "Another dime 'cause I'm rich" },
-    { time: 482, text: "She a dime so I hit, yeah" },
-    { time: 482, text: "Fuck this bitch up in the kitchen, when she cook grits she reminisce" },
-    { time: 489, text: "You wonder why she's taking so long to cook your breakfast" },
-    { time: 489, text: "'Cause last week I was in the kitchen getting wreck with her, ay" },
-    { time: 497, text: "Getting neck, getting, giving neck to her" },
-    { time: 497, text: "Pussy taste like water, I'ma have to do her" },
-    { time: 497, text: "Say he want a problem, I'm gon' have to do it, ay" },
-    { time: 506, text: "Now they on the news like 'He ain't have to do it, what the fuck he doin'?'" },
-    { time: 513, text: "That's yo' shorty in my party, yeah, that's who I was screwin', ay" },
-    { time: 523, text: "I'm maneuvering, me and Makonnen maneuvering" },
-    { time: 523, text: "Shit on these niggas I'm manure-ing" },
-    { time: 523, text: "Fuck your new car, I got a newer one" },
-    { time: 530, text: "Say you got depression, I got a bluer one" },
-    { time: 530, text: "Like that nigga was up in the sewer or something" },
+            // ═══ SONG 2: Priceless Freestyle ═══
+            {
+                title: "Priceless Freestyle",
+                artist: "Juice WRLD",
+                src: "Juice WRLD Chasethemoney Freestyle.mp3",
+                cover: "Screenshot 2026-04-08 164554.png",
+                lyrics: [
+                    // Part I: Priceless Freestyle
+                    { time: 19,  text: "Brand new cars, brand new drugs, brand new outlet, a brand new plug" },
+                    { time: 27,  text: "Same old nigga, just brand new us, I've been gettin' high as a bitch, so what?" },
+                    { time: 34,  text: "50 for a hundred, if I show up, 100 for appearance I don't gotta show up" },
+                    { time: 37,  text: "I remember I was broke then I blew up, now I feel like Makonnen in the club, go up" },
+                    { time: 43,  text: "Perky with the cup, I feel it in my gut" },
+                    { time: 51,  text: "Try me if you wanna, yeah, they be in the cut, choppa kinda hungry, make it eat you up" },
+                    { time: 59,  text: "Xans, Robituss', couldn't get enough, mix it with the Tuss', then I sip it up" },
+                    { time: 63,  text: "Now I'm high as fuck, glue stick stuck, pull up with the choppa, click-clack, buck buck" },
+                    { time: 72,  text: "This my masterplan, ain't no master man, pull up on 'em, avalanche" },
+                    { time: 76,  text: "All this ice up on my wrist, I swear it's like an avalanche" },
+                    { time: 80,  text: "Feel like 50 Cent cuz many men they be hating, niggas basic, you a mutt, you don't got no home training" },
+                    { time: 88,  text: "Pull up on the scene, lil' bro totin' stainless" },
+                    { time: 90,  text: "He look like James Bond 007 the way he aim it, leave a nigga brainless, leave his face up on the pavement" },
+                    { time: 97,  text: "Presidential head, presidential Rollie, Sara Palin, she was in my bed, givin' head, spread her legs, do her in" },
+                    { time: 104, text: "I'm gon' get this cash, invest in a bag" },
+                    { time: 107, text: "I know that they want what I have" },
+                    { time: 110, text: "Pull up on they ave', choppa like a mask, the way it pull up and it blast, I don't need no mask" },
+                    { time: 119, text: "Time travel, yeah, I'm from the future and the past, ballin' hard like Steve Nash, bitch I get cash" },
+                    // Music break ~2:08 to 2:55
+                    { time: 175, text: "Bitch I'm too rare" },
+                    { time: 182, text: "Don't bring your friends 'cause, bitch, I don't care" },
+                    { time: 182, text: "I said, bitch I'm too rare, don't bring your friends 'cause, bitch, I don't care" },
+                    { time: 190, text: "Pull up in a Benz and they stop and they stare" },
+                    { time: 192, text: "I'm gon' get this cash, try to take it, don't dare" },
+                    { time: 197, text: "I be with them guys that'd kill for me, I be with them guys that'd drill for me" },
+                    { time: 203, text: "We don't got no time for no feelings" },
+                    { time: 206, text: "I'm too busy countin' up my winnings" },
+                    { time: 209, text: "Louis V backpack, match the Louis jacket" },
+                    { time: 213, text: "Lost my father, I'm a rich bastard, nigga, why bother? I'ma get this cash" },
+                    { time: 221, text: "You can get it, got it twistin like some dreads" },
+                    { time: 224, text: "I was in the kitchen whippin', rollin' off the meds" },
+                    { time: 227, text: "All these niggas snitches, bitches tellin' to the feds" },
+                    { time: 235, text: "All these niggas snitching, bitches tellin' to the feds" },
+                    { time: 242, text: "Nah, I ain't talkin' bout that rainbow head" },
+                    { time: 248, text: "Brand new Ferrari, that shit pass with flying colors" },
+                    { time: 252, text: "I'll shoot up the party, I'm diminished, I'ma butler" },
+                    { time: 256, text: "Lil' bitch, I'm from Chicago, throwing bullets Jay Cutler" },
+                    { time: 260, text: "Remember I was servin' work like a butler" },
+                    { time: 264, text: "Now I got this VVS's on me, Ice road trucker" },
+                    { time: 266, text: "I'm a money makin' motherfucker, that mean I make money then put dick up in your mother" },
+                    { time: 273, text: "I've been ballin' like Iman Shumpert" },
+                    { time: 276, text: "Kobe Bryant really shootin' threes just for comfort" },
+                    { time: 280, text: "In the night time, I turn into a monster" },
+                    { time: 283, text: "Killin' all these beats, bitch, I feel like a Jeffrey Dahmer" },
+                    { time: 288, text: "Give me long neck, shorty like a ostrich, fly without trying so my closet like a cockpit" },
+                    { time: 295, text: "I promise if it's problems if you run up get it often" },
+                    { time: 298, text: "I got powers like my first name Austin, runnin' while I'm dropping bombs, marathon in Boston" },
+                    { time: 302, text: "Try me, I'ma pull up to your new apartment, kick all of the bitches out then kill you, call me Martin" },
+                    { time: 309, text: "Dead homies in the blunt spark it, I'm in the bus gettin it bussin had to Rosa Park it" },
+                    { time: 313, text: "Try me if you want, bitch, I'm a martian, that mean I got a laser with a motherfuckin' target" },
+                    { time: 317, text: "I'ma take you out like the garbage, then take yo' bitch out on a date at the gardens" },
+                    { time: 325, text: "Try me if you want, I'm goin' hard, I'm like a rocket, I take off like a rocket" },
+                    // Music break ~5:34
+                    { time: 346, text: "I've been catchin' vibes all night" },
+                    { time: 355, text: "Go to Japan, it's a long flight, that nigga tried to run in my house, why me? Boy you took the wrong right" },
+                    { time: 363, text: "I've been ballin' hard all night, go to Japan, nigga, that's a long flight" },
+                    { time: 368, text: "Go to Japan just to get some Off-White, shot at yo' mans 'cause he wasn't comin' right" },
+                    { time: 376, text: "Me and CHASETHEMONEY finna chase the money" },
+                    { time: 380, text: "Even on them rainy days, and when the days is sunny" },
+                    { time: 386, text: "All these niggas broke as a joke, they be really bummy, VVS on our wrist we used to be scummy" },
+                    { time: 393, text: "Now a nigga too rich, bitch, I'm too lit, too legit to quit nigga, yeah, I'm too real" },
+                    { time: 400, text: "Speakin of two yesterday I took 2 pills, fuck yo' percs, I'm poppin' on a roxy" },
+                    { time: 406, text: "Pull up on the scene and it's just me, on a supermoto, totin' my heat" },
+                    { time: 410, text: "Pop a wheely while I pop a opp nigga, like a beat or sum' bitch I'm bound to drop niggas" },
+                    { time: 417, text: "I've been sippin' lean, I Speaker Knock niggas" },
+                    { time: 422, text: "RIP yea that's to Speaker Knocks nigga" },
+                    { time: 426, text: "Remember 'cordin' out Fort Knox nigga, Hanes all over my socks nigga" },
+                    { time: 432, text: "Then I got rich and my knots bigger, on god, I remember trappin' out Fort Knox nigga" },
+                    { time: 442, text: "I been on the wave with my new shit, I'm talkin' cruise ship" },
+                    { time: 453, text: "I pull up on the scene with my choppa it's a uzi, money Longer, feel like I am Uzi" },
+                    { time: 459, text: "Make a movie wit' yo' bitch call me Clooney, wit' these tunes bitch I'm looney" },
+                    { time: 462, text: "Told her show me dat ass moon me" },
+                    { time: 468, text: "She ride me like a ten speed, I know her boyfriend hatin' on me, nigga filled with envy" },
+                    { time: 475, text: "You ain't real, take a lot to convince me" },
+                    { time: 478, text: "I pull up on the scene and get to run shit like track meets" },
+                    { time: 481, text: "Flex up on my ex, I'm such athlete, add the millions up I'm feelin' like a math geek" },
+                    { time: 484, text: "It's gon' take mo' than a hunnid' to surpass me, I threw a hunnid' on a random bitch ass cheek" },
+                    { time: 490, text: "Too real, too real, too real, yeah" },
+                    { time: 500, text: "Smokin' on this chronic got my eyes red, kinda like the blood that he shed" },
+                    { time: 510, text: "I'ma put a hole in his head, now his mom callin' the feds, first forty-eight don't go there" },
+                    { time: 519, text: "When I go to Florida I got Zoe's there, when I go back to Chicago I got Moe's there, BD's and 4's there" },
+                    { time: 525, text: "Pull up with that choppa, huh, shoot him like whoa there" },
+                    // Part II: Rain Dance Freestyle
+                    { time: 556, text: "Sittin' in a room with a handful bands and a handful of thots" },
+                    { time: 556, text: "Sittin' in a room with a handful bands and a handful of thots" },
+                    { time: 564, text: "Brother on the run from the law, I pray to god that he never get caught" },
+                    { time: 568, text: "Triple nine tatted on me 'till the death, boy, I swear this shit like a cult" },
+                    { time: 572, text: "I five shots I guess to my gun I'ma boss, my pockets fat as fuck, I put the Rick to Ross" },
+                    { time: 580, text: "Shoot yo' Adam's apple, now it's apple sauce" },
+                    { time: 584, text: "I feel like Kobe Bryant, before I shoot boy get crossed" },
+                    { time: 587, text: "I'm in my lane, I made my lane, so bitch I'm surfin'" },
+                    { time: 591, text: "If I go broke I don't really care, 'cause I'll go back to servin'" },
+                    { time: 595, text: "I was in the streets lurkin', off of them Perkies, fuckin' a Persian" },
+                    { time: 602, text: "Went to the bank and I fucked on the bank, like a muh'fuckin' pervert" },
+                    { time: 610, text: "Swallow my Family Guy, bitch, I feel like Peter, you run up on me, I'ma hit 'em, I got my hand on my heater" },
+                    { time: 613, text: "My flow is off of the meter, I make her scream, 'Oh baby, baby,' like she's Justin Bieber" },
+                    { time: 618, text: "Swallow my babies, babies, 'cause I don't need 'em" },
+                    { time: 621, text: "These niggas my son anyway, so I'm gon' beat 'em" },
+                    { time: 627, text: "Pull up on the scene choppa on me with a beam, I'ma shoot like Derek Jeter" },
+                    { time: 630, text: "Someone might grab a thermometer, 'cause I feel like I got a fever" },
+                    { time: 635, text: "I don't wanna fuck a bitch, I don't need her" },
+                    { time: 638, text: "Put a ring 'round her throat cuz the lil' bitch a keeper" },
+                    { time: 643, text: "She my Victoria Secret, I need the money of pieces" },
+                    { time: 647, text: "Pockets on them they facetious, told her to give me a reason" },
+                    { time: 652, text: "I just been blowin' these trees and I got my brothers back, they got my back too, they will not guilty of treason" },
+                    { time: 660, text: "Roll up the weed cuz I need it I'm smokin' this reefer like Wizzy Khalifa" },
+                    { time: 664, text: "Run up on me I'ma shoot got my hand on my heater" },
+                    { time: 670, text: "My gun is a thot just like Mia Khalifa" },
+                    { time: 673, text: "My gun is a hoe just like Mia Khalifa, I come like Nas cuz I got the Ether" },
+                    { time: 675, text: "Niggas ain't shit but some hoes I don't need 'em, I kick to the side" },
+                    { time: 680, text: "The choppa got a kickback and it hit yo' ass and yo' left eye" },
+                    { time: 683, text: "Fuckin' that bitch for a couple of times, I hit that bitch like a couple of times" },
+                    { time: 690, text: "I pour the syrup a couple of times, I ran through a pint like a dozen of times" },
+                    { time: 697, text: "This little light of mine, it's gon get cash, and attract the concubines" },
+                    { time: 703, text: "I'm searchin' so I find" },
+                    { time: 709, text: "He a pussy boy, he a feline" },
+                    { time: 715, text: "Bitch I'm Jimi Hendrix, with this shit I'm kickin'" },
+                    { time: 717, text: "Shut the fuck up nigga listen, ball on a nigga no Piston" },
+                    { time: 720, text: "Nigga I'm army enlisted, don't give a fuck 'bout a bitch or a nigga" },
+                    { time: 723, text: "Run up on me then that clip'll get bigger, hop on my dick like she lookin' like Tigger" },
+                    // Rain Dance Hook - Verse 2
+                    { time: 742, text: "Louis V shades, no ray bans, hit the strip club make em' rain dance" },
+                    { time: 751, text: "Just bought a house in the A, nigga need a new vacay, hit the strip club make em' rain dance" },
+                    { time: 778, text: "Louis V shades, no ray bans, hit the strip club make em' rain dance" },
+                    { time: 817, text: "Louis V shades, no ray bans, hit the strip club make em' rain dance" },
+                    { time: 820, text: "Came in the club with a k, yeah, shot a muhfucka in the face, yeah, spray a muhfucka no mace, yeah" },
+                    { time: 826, text: "What I say the first time bro, Louis V frames, no ray bans" },
+                    { time: 838, text: "Hit the strip club make em' rain dance, gettin' that money like a mason" },
+                    // Rain Dance Verse 3
+                    { time: 861, text: "Ballin' on the moon in these Bape pants, yeah, I'm goin' ape fam, Superman without a cape, yeah" },
+                    { time: 868, text: "Pull up get baked, yeah, smokin' like 420 blaze, yeah, 420 blaze it, smokin' til' I'm like a Asian" },
+                    { time: 875, text: "Heart on the pavement, don't give fuck what you sayin', I'm high so I'm never gon' land'" },
+                    { time: 883, text: "She told she don't got a man, I told her that I understand, I just wanna rack up the bands, so I could take a trip to France" },
+                    { time: 890, text: "I already went to France, so I think I may go there again, okay, I get it in, the money, yeah, I'm boutta spend" },
+                    { time: 896, text: "I feel like Lebron James, cuz I'm jumpin' above the rim" },
+                    { time: 899, text: "I'll stomp em' out in my timbs, now I got blood on my timbs" },
+                    { time: 902, text: "I told you I don't fuck with him, so if you come around here I'ma spin" },
+                    { time: 908, text: "I guess that I'm stuck in my ways, I'm off of the top like a fade" },
+                    { time: 911, text: "I'm off of the top like some braids, I'm telling you I make a wave" },
+                    { time: 917, text: "They surfin' all over my place, I told her to surf it all over my face" },
+                    { time: 924, text: "Eatin' the cake, I'm fuckin' her face, I'm sprayin' the choppa, it's lookin' like mace" },
+                    { time: 930, text: "Give a fuck whatchu say, I guess I'm stuck in my ways, make a hit everyday" },
+                    { time: 932, text: "Platinum on platinum parade, choppa on me it blaze, it hit you up in yo face" },
+                    { time: 941, text: "Spittin' that real, fuck how you feel, rich as fuck, up in Encino Hills, no record deal, got a couple mil'" },
+                    { time: 951, text: "Louis V frames, sittin' on a, okay, Louis V shades, no ray bans" },
+                    { time: 955, text: "Hit the strip club make em' rain dance, I don't got money I'ma take bands" },
+                    { time: 966, text: "I don't have money I'ma take bands, Louis V shades, no ray bans, hit the strip club make em' rain dance" },
+                    { time: 978, text: "She tired, take a break then, get higher than a ceiling fan" },
+                    { time: 984, text: "These niggas to silly, man, choppa gon' pop like a wheely, man, learn how to pop a wheely, man" },
+                    { time: 990, text: "Supermotos stay with me, yeah, feeling like Taylor I'm swiftly, yeah" },
+                    { time: 995, text: "Like a work a bitch she get busy, yeah, off the percies bitch I get busy, yeah" },
+                    { time: 999, text: "Tell yo lil' bitch get with me, yeah, transform like Witwicky, yeah" },
+                    { time: 1003, text: "Transform like Witwicky, yeah, told a nigga I make a history, yeah, I'm cold, I'm blisterin', yeah" },
+                    { time: 1008, text: "Unsolved like a mystery, yeah, fuck nigga don't mention me, yeah" },
+                    { time: 1012, text: "I don't really know what gotten into me, yeah, fuckin' shit up mentally, yeah" },
+                    { time: 1017, text: "I guess I'm just meant to be, yeah, whatever I'm meant to be, yeah" },
+                    { time: 1020, text: "Money I can't stop spendin', I'mma hit his block I'mma spin it" },
+                    { time: 1024, text: "Niggas too fake they pretendin', they ain't never have happen endin'" },
+                    { time: 1028, text: "Louis V shades, no ray bans, hit the strip club make em' rain dance" },
+                    { time: 1031, text: "If I go broke I'ma take bands, I don't give a fuck about yo friends" },
+                    { time: 1035, text: "Pull up on the scene like Conan, she love me like Makkonen" },
+                    { time: 1039, text: "I'm gettin' lost in the moment, bullets come in 3 like Jonas" },
+                    { time: 1042, text: "Louis V shades, no ray bans, hit the strip club make a rain dance" },
+                    { time: 1047, text: "If I go broke I'ma take bands, I'll fuck her everday" },
+                    { time: 1050, text: "Fuck her til' she tired she gon' need her break then, make a pussy nigga go away then" },
+                    { time: 1060, text: "Sean just walked in the room, yeah, finna hit the show then move, dance" },
+                    { time: 1068, text: "Yeah that's Bailey that's my cousin we been goin' crazy" },
+                    { time: 1073, text: "He was born in the eighties I'm born in the nineties I'ma nineties baby" },
+                    { time: 1078, text: "That's how it goes, I put my dick in yo hoe, that's at my show" },
+                    { time: 1082, text: "Diamonds in gold, bitch I'm sick like I just caught me a cold" },
+                    { time: 1088, text: "Okay then, say you wanna fight, okay then, Windex can on the Glock, cuz all I do is spray it" },
+                    { time: 1095, text: "Heard you want some smoke, well all you gotta do is say it" },
+                    { time: 1100, text: "Leave a fuck nigga on the pavement, smokin' til I look like a Asian" },
+                    { time: 1105, text: "Jackie Chan how I, uh-huh, Jackie Chan how I kick it" },
+                    { time: 1109, text: "Louis V shades, no ray bans, hit the strip club make em' rain dance" },
+                    { time: 1115, text: "Choppa hit a nigga make him break dance" },
+                    { time: 1118, text: "Cuz I'm in the scene like Conan, she love me like Makkonen" },
+                    { time: 1124, text: "Uh-uh uh-uh like bro, yeah" },
+                    { time: 1130, text: "Louis V shades, no ray bans, hit the strip club make em' rain dance" },
+                    { time: 1136, text: "Shot it at a nigga like break dance, cuz I'm in the scene like Conan, she love me like Makkonen" },
+                ]
+            }
+        ];
 
-    // Part 4: I Don't Sell Molly No More
-    { time: 581, text: "I'm smokin' gas, getting dough, I don't do Molly no more" },
-    { time: 590, text: "Back in the day, I was lit, kinda like a lighter, call me Juice Bic" },
-    { time: 590, text: "I'm smokin' gas, getting dough, I don't do Molly no more" },
-    { time: 598, text: "Back in the day, shit, I was lit, I feel like a lighter, call me Juice Bic" },
-    { time: 606, text: "It's me and Makonnen, the best thing going" },
-    { time: 606, text: "Pink Molly, tan Molly, the best thing rolling" },
-    { time: 606, text: "I feel like a God, god dammit and you know it" },
-    { time: 615, text: "My girl is my trophy, so you know I love to show her off" },
-    { time: 615, text: "I pull up on a scene, .40 on me, I don't even show it" },
-    { time: 622, text: "I ain't kick it with 'em, they my homie" },
-    { time: 622, text: "I told you, 'If I do my dirt, I do it by my lonely'" },
-    { time: 622, text: "And all these niggas fake than a bitch, they be phony" },
-    { time: 630, text: "I'm bound to spit some crack every time I'm on the beat though" },
-    { time: 630, text: "Choppa hit his stomach, got him shakin', catch a heat stroke" },
-    { time: 638, text: "Lookin' at you nigga, he a pussy and he broke" },
-    { time: 638, text: "I don't gotta make it known as long as he know" },
-    { time: 638, text: "Flyin' though, I am in the air, superhero" },
-    { time: 645, text: "Swimmin' through the pussy in the water like I'm Nemo" },
-    { time: 645, text: "Say he wanna fight, I beat him, steal his bike, Deebo" },
-    { time: 652, text: "Up, down, left, right, A-B-Y-X, bitch, that is the cheat code" },
-    { time: 659, text: "I'm smokin' gas, getting dough, I don't do Molly no more" },
-    { time: 659, text: "Back in the days I was lit, lookin' like a lighter, call me Juice Bic" },
-    { time: 666, text: "I'm smokin' gas and getting dough, I don't do Molly no more" },
-    { time: 666, text: "Now I'm lit, super lit" },
-    { time: 675, text: "Call me Juice Lighter, yeah, Bic" },
-    { time: 675, text: "Bring the hook back, freestyle a whole song" },
-    { time: 683, text: "Me and the mic' rapping all night long" },
-    { time: 683, text: "Choppa beat his chest kinda like King Kong" },
-    { time: 683, text: "Beat yo' ass on TV to get my Jerry Spring' on" },
-    { time: 691, text: "I'm the type to buy a mansion up in Atlanta" },
-    { time: 691, text: "With a black and white car, like Desiigner singing 'Panda'" },
-    { time: 691, text: "You run up, you get punched, leaned over like a Phantom" },
-    { time: 700, text: "Remember, I was sippin' lean like a present came from Santa, I was happy" },
-    { time: 700, text: "Young nigga ballin' like McGrady in the fourth" },
-    { time: 707, text: "Wish your nigga try to play it, I'ma spray it, got the torch" },
-    { time: 707, text: "You ain't ballin' how I'm ballin', get the fuck up off my court" },
-    { time: 707, text: "If I go broke, back to the trap, water whippin' with a fork" },
-    { time: 716, text: "Louis on my sweater, they can't do it better than me, ugh" },
-    { time: 716, text: "Heard you got her wet, but you can't get her wetter than me" },
-    { time: 723, text: "Lookin' up to God, I know he bettering me" },
-    { time: 723, text: "Run it fast, get the cash, smokin' gas" },
-    { time: 723, text: "Puff it one time, then I pass" },
-    { time: 734, text: "I'm fast and these niggas slow, I'm a Cheetah and they Molasses" },
-
-    // Outro
-    { time: 743, text: "I'm smokin' gas, getting dough, I don't do Molly no more, yeah, yeah" },
-    { time: 743, text: "Back in the days I was lit, kinda like a lighter, call me Juice Bic" },
-];
-
-        const audio        = document.getElementById("bgMusic");
-        const lyricsEl     = document.getElementById("lyrics");
-        const ghostEl      = document.getElementById("ghost-lyrics");
-        const playBtn      = document.getElementById("playBtn");
-        const progressBar  = document.getElementById("progress-bar");
-        const progressWrap = document.getElementById("progress-wrap");
-
+        let currentSong  = 0;
         let currentIndex = -1;
 
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                playBtn.textContent = "⏸ Pause";
-            } else {
-                audio.pause();
-                playBtn.textContent = "▶ Play";
-            }
+        const audio         = document.getElementById("bgMusic");
+        const lyricsEl      = document.getElementById("lyrics");
+        const ghostEl       = document.getElementById("ghost-lyrics");
+        const playBtn       = document.getElementById("playBtn");
+        const progressBar   = document.getElementById("progress-bar");
+        const progressTrack = document.getElementById("progress-bar-track");
+        const currentTimeEl = document.getElementById("current-time");
+        const totalTimeEl   = document.getElementById("total-time");
+
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60);
+            const s = Math.floor(secs % 60).toString().padStart(2, "0");
+            return `${m}:${s}`;
         }
 
+        function loadSong(index) {
+            currentSong  = index;
+            currentIndex = -1;
+            const song   = songs[index];
+            audio.src    = song.src;
+            document.getElementById("albumArt").src           = song.cover;
+            document.getElementById("songTitle").textContent  = song.title;
+            document.getElementById("artistName").textContent = song.artist;
+            document.querySelectorAll(".song-btn").forEach((btn, i) => {
+                btn.classList.toggle("active", i === index);
+            });
+            audio.load();
+            playBtn.textContent       = "▶";
+            lyricsEl.textContent      = "Intro...";
+            ghostEl.textContent       = "Intro...";
+            progressBar.style.width   = "0%";
+            currentTimeEl.textContent = "0:00";
+            totalTimeEl.textContent   = "0:00";
+        }
+
+        function toggleMusic() {
+            if (audio.paused) { audio.play(); playBtn.textContent = "⏸"; }
+            else              { audio.pause(); playBtn.textContent = "▶"; }
+        }
+
+        function nextSong() { loadSong((currentSong + 1) % songs.length); }
+        function prevSong() { loadSong((currentSong - 1 + songs.length) % songs.length); }
+
+        audio.addEventListener("loadedmetadata", () => {
+            totalTimeEl.textContent = formatTime(audio.duration);
+        });
+
         audio.addEventListener("timeupdate", () => {
-            const t = audio.currentTime;
-            if (audio.duration) {
-                progressBar.style.width = ((t / audio.duration) * 100) + "%";
-            }
+            const t      = audio.currentTime;
+            const lyrics = songs[currentSong].lyrics;
+            currentTimeEl.textContent = formatTime(t);
+            if (audio.duration) progressBar.style.width = ((t / audio.duration) * 100) + "%";
+
             let idx = -1;
             for (let i = 0; i < lyrics.length; i++) {
                 if (t >= lyrics[i].time) idx = i;
                 else break;
             }
+
             if (idx !== currentIndex) {
                 currentIndex = idx;
                 const text = idx === -1 ? "Intro..." : lyrics[idx].text;
-                
-                // Fade out old text
                 lyricsEl.style.opacity = "0";
-                
                 setTimeout(() => {
                     lyricsEl.textContent = text;
-                    ghostEl.textContent = text;
+                    ghostEl.textContent  = text;
                     lyricsEl.classList.add("highlight");
                     lyricsEl.style.opacity = "1";
-                    
-                
                     setTimeout(() => lyricsEl.classList.remove("highlight"), 600);
                 }, 200);
             }
         });
 
         audio.addEventListener("ended", () => {
-            playBtn.textContent = "▶ Play";
-            currentIndex = -1;
-            lyricsEl.textContent = "Intro...";
-            ghostEl.textContent = "Intro...";
+            playBtn.textContent     = "▶";
+            currentIndex            = -1;
+            lyricsEl.textContent    = "Intro...";
+            ghostEl.textContent     = "Intro...";
             progressBar.style.width = "0%";
+            nextSong();
         });
 
-        progressWrap.addEventListener("click", (e) => {
-            const rect = progressWrap.getBoundingClientRect();
+        progressTrack.addEventListener("click", (e) => {
+            const rect  = progressTrack.getBoundingClientRect();
             const ratio = (e.clientX - rect.left) / rect.width;
             audio.currentTime = ratio * audio.duration;
         });
-    </script>
 
-    <footer> 
-        <p>© 2026 Fade's Dev Profile</p>
-    </footer>
+        loadSong(0);
+    </script>
 
 </body>
 </html>
